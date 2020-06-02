@@ -1,6 +1,15 @@
-controllers:
-    resource: ../../src/Controller/
+#config/routes/annotations.yaml
+
+web_controller:
+    resource: ../../src/Controller/Web/
     type: annotation
+
+rest_controller:
+    resource: ../../src/Controller//Rest/{version}/
+    type: annotation
+    prefix: /api
+    requirements:
+        version: 'v\d+'
 
 kernel:
     resource: ../../src/Kernel.php
