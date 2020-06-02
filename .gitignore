@@ -15,7 +15,6 @@
 ###< symfony/phpunit-bridge ###
 /tests/
 /translations/
-/bin/
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
