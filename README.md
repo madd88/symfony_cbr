@@ -41,6 +41,7 @@ php bin/console doctrine:migrations:migrate
 ```
 php bin/console currency:upload
 ```
+Доспен один параметр количество дней в диапазоне от 30 до 120. Поумолчанию 30 дней.\
 Запускаем encore
 ```
 yarn run encore production
