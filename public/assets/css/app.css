@@ -1,0 +1,8 @@
+body {
+    background-color: lightgray;
+}
+
+#wrapper{
+    max-width: 1024px;
+    margin:auto;
+}
