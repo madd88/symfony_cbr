@@ -26,6 +26,12 @@ class CurrencyController extends AbstractController
         ]);
     }
 
+    /**
+     * @param $params
+     * @return \App\Entity\Currency
+     * @throws \Exception
+     */
+
     public function new($params) {
         return $this->currencyService->new($params);
     }

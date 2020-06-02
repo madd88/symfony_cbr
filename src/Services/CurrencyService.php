@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Сервис обработки валют
+ *
+ */
 
 namespace App\Services;
 
@@ -16,16 +20,34 @@ final class CurrencyService
     private $em;
     private $currencyRepository;
 
+    /**
+     * CurrencyService constructor.
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(EntityManagerInterface $entityManager){
         $this->em = $entityManager;
         $this->currencyRepository = $entityManager->getRepository(Currency::class);
     }
+
+    /**
+     * Вывод списка валют с фильтрацией
+     *
+     * @param array $filters
+     * @return array|null
+     */
 
     public function list(array $filters = []): ?array
     {
         return $this->em->getRepository(Currency::class)->findBy($filters);
     }
 
+    /**
+     * Создание записи валюты
+     *
+     * @param array $params
+     * @return Currency
+     * @throws \Exception
+     */
     public function new(array $params): Currency
     {
         if (! $this->validate($params)) {
@@ -45,10 +67,20 @@ final class CurrencyService
         return $currency;
     }
 
+    /**
+     * Очистка таблицы валют
+     */
+
     public function deleteAll(): void
     {
         $this->currencyRepository->deleteAll();
     }
+
+    /**
+     * Будущий валидатор
+     * @param array $params
+     * @return bool
+     */
 
     public function validate(array $params) {
         return true;

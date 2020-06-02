@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * REST API для вывода списка валют
+ *
+ */
+
 namespace App\Controller\Rest\v1;
 
 use App\Entity\Currency;
@@ -26,6 +31,13 @@ class CurrencyController extends AbstractFOSRestController {
         ]);
     }
 
+    /**
+     * Вывод списка валют
+     *
+     * @param Request $request
+     * @return View
+     * @throws \Exception
+     */
 
     public function list(Request $request) {
 
@@ -44,7 +56,6 @@ class CurrencyController extends AbstractFOSRestController {
             $dateFrom = new \DateTime($request->query->get('from'));
             $dateTo = new \DateTime($request->query->get('to'));
         }
-
 
         $currencyList = $this->getDoctrine()
             ->getRepository(Currency::class)

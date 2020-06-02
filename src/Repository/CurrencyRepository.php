@@ -48,6 +48,15 @@ class CurrencyRepository extends ServiceEntityRepository
     }
     */
 
+    /**
+     * Фильтр по диапазону дат и ID валюты
+     *
+     * @param $dateFrom
+     * @param $dateTo
+     * @param $valuteId
+     * @return array|null
+     */
+
     public function findByFilter($dateFrom, $dateTo, $valuteId) : ?array
     {
         $query = $this->createQueryBuilder('c')
